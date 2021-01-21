@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device.width, initial-scale=1.0">
+    <title>Memórias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <ul>
+            <li class="list active" data-filter="all">Tudo</li>
+            <li class="list" data-filter="eu">Eu</li>
+            <li class="list" data-filter="passeio">Passeio</li>
+        </ul>
+        <div class="cards">
+            <div class="itemBox eu"><img src="imagens/semana1f.jpg" width="360" height=auto>
+                <div class="details">
+                    <h2>Titulo <span>aqui</span></h2>
+                    <p>BLABLALBLA</p>
+                    <div class="more">
+                        <a href="#" class="read-more"> Uba<span>tuba</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itemBox passeio">
+                <img src="imagens/semana2f1.jpg" width="360" height=auto>
+                <div class="details">
+                    <h2>Titulo <span>aqui</span></h2>
+                    <p>BLABLALBLA</p>
+                    <div class="more">
+                        <a href="#" class="read-more">Parque da <span>independência</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="itemBox passeio">
+                <img src="imagens/semana2f2.jpg" width="360" height=auto>
+                <div class="details">
+                    <h2>Titulo <span>aqui</span></h2>
+                    <p>BLABLALBLA</p>
+                    <div class="more">
+                        <a href="#" class="read-more">Museu do <span>Ipiranga</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.list').click(function () {
+                const value = $(this).attr('data-filter');
+                if (value == 'all') {
+                    $('.itemBox').show('1000');
+                }
+                else {
+                    $('.itemBox').not('.' + value).hide('1000');
+                    $('.itemBox').filter('.' + value).show('1000');
+                }
+            })
+            $('.list').click(function () {
+                $(this).addClass('active').siblings().removeClass('active');
+            })
+        })
+    </script>
+</body>
+
+</html>
